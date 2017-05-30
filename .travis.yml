@@ -4,10 +4,16 @@ dist: trusty
 
 before_script:
     - sudo apt-get install libreadline-dev libffi-dev
+    
     - git clone --recurse-submodules https://github.com/micropython/micropython.git
     - cd micropython/unix
     - make axtls
     - make
+    - ./micropython -c "print(2+2)"
+    
+    - cd
+    - git clone https://github.com/chrisb2/pyb_ina219
 
 script:
-    - ./micropython -c "print(2+2)"
+    - cd pyb_ina219
+    - ../micropython/unix/micropython tests.testall
