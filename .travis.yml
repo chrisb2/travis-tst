@@ -10,4 +10,4 @@ before_script:
     - make
 
 script:
-    - ./micropython --help
+    - ./micropython -c "print(2+2)"
