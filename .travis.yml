@@ -11,9 +11,10 @@ before_script:
     - make
     - ./micropython -c "print(2+2)"
     
-    - cd
+    - cd ../..
     - git clone https://github.com/chrisb2/pyb_ina219
+    - cd pyb_ina219
+    - wget https://raw.githubusercontent.com/micropython/micropython-lib/master/unittest/unittest.py
 
 script:
-    - cd pyb_ina219
-    - ../micropython/unix/micropython tests.testall
+    - ../micropython/unix/micropython tests/testall.py
